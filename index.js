@@ -2,19 +2,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-//Configurações para o framework bory-parser
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-
 const port = 3000;
 const hostname = 'localhost';
 
+//Configurações para o framework bory-parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.get('/', (req, res)=>{
     res.statusCode = 200;
-    res.send(req.body);
-    console.log(req.body);
+    res.send(JSON.stringify(req.body));
+    console.log(JSON.stringify(req.body));
 });
-
 
 //Inicia o servidor
 //node ./index.js
