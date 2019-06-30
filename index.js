@@ -11,8 +11,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res)=>{
     res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    const {nome, email, password} = req.body;
+    //Atenção não é possivél ter mais de um res.send() em uma função;
     res.send(JSON.stringify(req.body));
+    //res.send("Seu nome: "+nome+", seu email:"+email+", sua senha:"+password+".");
     console.log(JSON.stringify(req.body));
+    //console.log("Seu nome: "+nome+", seu email:"+email+", sua senha:"+password+".");
 });
 
 //Inicia o servidor
