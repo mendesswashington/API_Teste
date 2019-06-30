@@ -8,4 +8,7 @@
     
   - O comando abaixo serve para instalar o framework responsável por trabalhar com o Json na aplicação.
     npm install body-parser -- save
-  
+
+# Observação
+  - Caso já tenha o node e o npm intalado e clonou esse repositório vá até a pasta usando o cmd e digite esse comando.
+    npm install
