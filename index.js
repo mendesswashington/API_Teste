@@ -7,9 +7,15 @@ const hostname = 'localhost';
 
 //Configurações para o framework bory-parser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req, res)=>{
+app.get('/', function(req, res){
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).send("Hello Word!");
+    console.log("Hello Word!");
+});
+
+app.post('/', (req, res)=>{
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     const {nome, email, password} = req.body;
@@ -20,8 +26,24 @@ app.get('/', (req, res)=>{
     //console.log("Seu nome: "+nome+", seu email:"+email+", sua senha:"+password+".");
 });
 
-//Inicia o servidor
-//node ./index.js
+app.put('/', (req, res)=>{
+    res.status(200).send({
+        "title": "Api Node",
+        "method": "put",
+        "version": "0.0.1",
+        
+    });
+});
+
+app.delete('/', (req, res)=>{
+    res.status(200).send({
+        "title": "Api Node",
+        "method": "delete",
+        "version": "0.0.1",
+    });
+});
+
+//Inicia o servidor npm start
 app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
-  });
+});
