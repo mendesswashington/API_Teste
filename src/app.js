@@ -7,11 +7,11 @@ const tecnicosRouter = require('./Routes/tecnicos-routes');
 
 
 const app = express();
-const router = express.Router();
+//const router = express.Router();
 
 //Configurações do Mongodb
 mongoose.set('useCreateIndex', true);
-mongoose.createConnection('mongodb://localhost/noderest',  {useNewUrlParser: true}).then(()=>{
+mongoose.connect('mongodb://localhost/noderest',  {useNewUrlParser: true}).then(()=>{
 console.log("Conexão com sucesso!");
 }).catch(()=>{
     console.log("Erro na conexão!");

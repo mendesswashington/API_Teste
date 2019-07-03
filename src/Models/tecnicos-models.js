@@ -26,10 +26,13 @@ const schema = new Schema ({
     },
     labs:[{
         type: String,
-        unique:true,
         require:true,
         lowercase:true
-    }]
+    }],
+    createdAt:{
+        type: Date,
+        default: Date.now,
+    },
 });
 
 module.exports = mongoose.model('Tecnico', schema);
