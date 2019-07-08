@@ -10,6 +10,7 @@ const app = express();
 //const router = express.Router();
 
 //Configurações do Mongodb
+mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.connect('mongodb://localhost/noderest',  {useNewUrlParser: true}).then(()=>{
 console.log("Conexão com sucesso!");
