@@ -29,6 +29,10 @@ const schema = new Schema ({
         require:true,
         lowercase:true
     }],
+    status:{
+        type:Boolean,
+        default:true
+    },
     createdAt:{
         type: Date,
         default: Date.now,

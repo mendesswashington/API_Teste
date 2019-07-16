@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const tecnicoModel = require('./Models/tecnicos-models'); 
 const indexRouter = require('./Routes/index-routes');
 const tecnicosRouter = require('./Routes/tecnicos-routes');
+const config = require('./config');
 
 
 const app = express();
@@ -12,7 +13,7 @@ const app = express();
 //Configurações do Mongodb
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb://localhost/noderest',  {useNewUrlParser: true}).then(()=>{
+mongoose.connect(config.connectionString,  {useNewUrlParser: true}).then(()=>{
 console.log("Conexão com sucesso!");
 }).catch(()=>{
     console.log("Erro na conexão!");
