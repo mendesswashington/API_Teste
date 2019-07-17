@@ -6,10 +6,7 @@ const indexRouter = require('./Routes/index-routes');
 const tecnicosRouter = require('./Routes/tecnicos-routes');
 const config = require('./config');
 
-
 const app = express();
-//const router = express.Router();
-
 //Configurações do Mongodb
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
@@ -18,7 +15,6 @@ console.log("Conexão com sucesso!");
 }).catch(()=>{
     console.log("Erro na conexão!");
 });
-
 
 //Configurações para o framework bory-parser
 app.use(bodyParser.json());
